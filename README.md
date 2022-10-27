@@ -1,2 +1,2 @@
 # LeetCode
-My daily LeetCode struggle..!
+My daily LeetCode struggle...
