@@ -20,17 +20,25 @@ class Solution
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    // code here
-	    stack<int>st;
-	    vector<int> vis(V,0);
+	    queue<int>q;
+	    vector<int> inDeg(V,0);
 	    for(int i=0;i<V;i++){
-	        if(vis[i]==0){
-	            dfs(i,vis,st,adj);
+	        for(auto it:adj[i]){
+	            inDeg[it]++;
 	        }
 	    }
+	    for(int i=0;i<V;i++){
+	        if(inDeg[i]==0) q.push(i);
+	    }
 	    vector<int>ans;
-	    while(!st.empty()){
-	        ans.push_back(st.top());
-	        st.pop();
+	    while(!q.empty()){
+	        int node=q.front();
+	        q.pop();
+	        ans.push_back(node);
+	        for(auto it:adj[node]){
+	            inDeg[it]--;
+	            if(inDeg[it]==0) q.push(it);
+	        }
 	    }
 	    return ans;
 	}
