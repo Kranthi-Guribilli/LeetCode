@@ -4,7 +4,7 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution {
-  public:
+    public:
     int minimizeSum(int n, vector<vector<int>>& triangle) {
         // Code here
         vector<int>cur(n,0),front(n,0);
