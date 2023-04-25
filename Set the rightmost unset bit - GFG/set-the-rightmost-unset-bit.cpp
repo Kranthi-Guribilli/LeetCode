@@ -1,0 +1,35 @@
+//{ Driver Code Starts
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// } Driver Code Ends
+class Solution
+{
+public:
+    int setBit(int n)
+    {
+        // Write Your Code here
+        if(n==0) return 1;
+        if((n&(n+1))==0) return n;
+        int num= ~n;
+        int pos = log2(num & -num)+1;
+        return (1<<(pos-1))|n;
+    }
+};
+
+//{ Driver Code Starts.
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int N;
+        cin >> N;
+        Solution ob;
+        int ans = ob.setBit(N);
+        cout << ans << endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
